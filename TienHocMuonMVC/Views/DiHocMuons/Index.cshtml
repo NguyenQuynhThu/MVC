@@ -1,0 +1,54 @@
+﻿@model TienHocMuonMVC.Models.DiHocMuonListingModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.Label("Ma Sinh Vien")
+        </th>
+        <th>
+            @Html.Label("Hinh Thuc Nop Phat")
+        </th>
+        <th>
+            @Html.Label("So Luong")
+        </th>
+        <th>
+            @Html.Label("Ngay Nop Phat")
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.DSHocMuon)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaSinhVien)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HinhThucNopPhat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoLuong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayNopPhat)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div>Tổng số tiền phạt: @Html.DisplayFor(m => m.TongTien)</div><div>Tổng số chống đẩy: @Html.DisplayFor(m => m.TongChongDay)</div>
